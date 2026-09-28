@@ -544,8 +544,10 @@ marketer to approve, adjust or reject. Two agents have read, reasoned and propos
 been created or discounted — that happens only after a human says yes. Every run, whether
 it ended in a brief or in silence, is kept as an audit record.
 
-The notebooks, the Supervisor instructions, and the two SQL tools are in
-[`databricks/behavioral-opportunity/`](databricks/behavioral-opportunity/README.md).
+The Databricks side (both jobs, the agent's tools, the exact handoff) is described in
+[OTTO-BEHAVIORAL-SIGNALS.md](OTTO-BEHAVIORAL-SIGNALS.md). The notebooks, the Supervisor
+instructions and the two SQL tools are in the `voucherify-ucp` repository under
+[`databricks/behavioral-opportunity/`](https://github.com/voucherifyio/voucherify-ucp/tree/otto/databricks/behavioral-opportunity).
 
 **The decision is real.** The agent is allowed — and expected — to conclude *no* and produce
 nothing. A run that outputs a brief every time would be a report generator, not an agent.

@@ -2,7 +2,7 @@
 
 Weekly Databricks job for Scenario 3. Nobody is in a conversation. The agent reads aggregate store behaviour, decides whether a promotion is worth designing, and - only when it is - asks Vincent to draft cohorts. A marketer arrives to a thread that already contains both agents' reasoning.
 
-The pitch is in [HACKATHON.md §7](../../HACKATHON.md#7-scenario-3--weekly-opportunity-agent-to-vincent). This folder is the Databricks source: why the decision is shaped this way, the two jobs, the tools, and the exact handoff. Vincent's implementation lives in the Vincent repository.
+The pitch is in [README.md §7](README.md#7-scenario-3--weekly-opportunity-agent-to-vincent). This document is the Databricks side: why the decision is shaped this way, the two jobs, the tools, and the exact handoff. The source files live in the `voucherify-ucp` repository under [`databricks/behavioral-opportunity/`](https://github.com/voucherifyio/voucherify-ucp/tree/otto/databricks/behavioral-opportunity). Vincent's implementation lives in the Vincent repository.
 
 ## Why it works this way
 
@@ -14,11 +14,11 @@ Privacy is a hard boundary, not a prompt courtesy. The daily table, both tools, 
 
 ## The two jobs
 
-Both are serverless Databricks Workflows. The notebooks in this folder are their source.
+Both are serverless Databricks Workflows. Their notebooks are in [`databricks/behavioral-opportunity/`](https://github.com/voucherifyio/voucherify-ucp/tree/otto/databricks/behavioral-opportunity).
 
 | | Daily report | Weekly review |
 |---|---|---|
-| Notebook | `databricks_behavioral_reports.py` | `databricks_behavioral_agent_run.py` |
+| Notebook | [`databricks_behavioral_reports.py`](https://github.com/voucherifyio/voucherify-ucp/blob/otto/databricks/behavioral-opportunity/databricks_behavioral_reports.py) | [`databricks_behavioral_agent_run.py`](https://github.com/voucherifyio/voucherify-ucp/blob/otto/databricks/behavioral-opportunity/databricks_behavioral_agent_run.py) |
 | Job id | `451694092272892` | `590707914570366` |
 | Schedule | every day at 23:30 `Europe/Warsaw`, and **Run now** | Mondays 09:00 `Europe/Warsaw`, and **Run now** |
 | Writes | `databricks-hackathon.voucherify_otto.behavioral_report_daily` | `databricks-hackathon.voucherify_otto.behavioral_agent_runs` |
@@ -40,8 +40,8 @@ Agent Bricks Supervisor, display name **Behavioral Opportunity Analyst**.
 |---|---|
 | Supervisor id | `fe23f01a-9cf0-4e36-8f8e-0bc376bb3d08` |
 | Serving endpoint | `mas-fe23f01a-endpoint` |
-| Instructions | `instructions.md` - pasted into Agent Bricks |
-| Tools | `tools.sql` - create or replace both functions, then attach them |
+| Instructions | [`instructions.md`](https://github.com/voucherifyio/voucherify-ucp/blob/otto/databricks/behavioral-opportunity/instructions.md) - pasted into Agent Bricks |
+| Tools | [`tools.sql`](https://github.com/voucherifyio/voucherify-ucp/blob/otto/databricks/behavioral-opportunity/tools.sql) - create or replace both functions, then attach them |
 
 The instructions require both calls before a decision. The two results are different evidence:
 
